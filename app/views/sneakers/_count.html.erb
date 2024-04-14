@@ -1,0 +1,9 @@
+<%= turbo_frame_tag dom_id(sneaker, :items_in_cart) do %>
+  <div class="absolute flex gap-1 bg-gray-700 text-gray-100 px-3 py-1 right-2 top-2 rounded-full">
+    <%= button_to "+", add_to_cart_path(sneaker), class: "font-bold" %>
+    <div>
+      <%= @cart.sneaker_count(sneaker)  %>
+    </div>
+    <%= button_to "-", remove_from_cart_path(sneaker), class: "font-bold", method: "delete" %>
+  </div>
+<% end %>

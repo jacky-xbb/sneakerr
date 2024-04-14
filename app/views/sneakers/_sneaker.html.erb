@@ -1,0 +1,32 @@
+<div id="<%= dom_id sneaker %>" class="relative shadow-lg rounded-lg border p-2" >
+
+  <div>
+    <%= render partial: "count", locals: {sneaker: sneaker} %>
+  </div>
+
+  <%= link_to sneaker_path(sneaker) do %>
+    <p class="border rounded">
+      <%= image_tag sneaker.image %>
+    </p>
+
+    <p class="mt-3 font-bold text-sm">
+      <%= sneaker.name %>
+    </p>
+
+    <p class="my-1 font-semibold text-green-500 text-sm">
+      <%= number_to_currency(sneaker.price) %>
+    </p>
+
+    <p class="my-1 text-gray-500 text-xs">
+      <%= sneaker.brand %>
+    </p>
+
+    <p class="my-1 text-gray-700 text-sm">
+      <%= sneaker.description %>
+    </p>
+  <% end %>
+
+  <%= button_to add_to_cart_path(sneaker), class: "btn-primary w-full", method: "post" do %>
+    Add to cart
+  <% end %>
+</div>
